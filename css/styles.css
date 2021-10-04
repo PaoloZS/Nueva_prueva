@@ -1,0 +1,102 @@
+:root{
+    --blanco:#ffffff;
+    --oscuro:#212121;
+    --primario:#ffc107;
+    --secundario:#0097A7;
+    --gris:#757575;
+}
+html{
+    font-size: 62.5%;
+    box-sizing: border-box;/**/
+}
+*, *:before, *:after{/* * selecciona todo el html*/
+    box-sizing: inherit;
+}/**:before - se usa como psudo- un codigo que no se 
+    se vera pero si existe*/
+
+
+body{
+    font-size: 16px;
+}
+.titulo {
+    text-align: center;
+    font-size: 3.8rem;
+    font-family: 'Lora', serif;
+}
+.titulo span{
+    font-size: 2rem;
+}
+/*para id usamos #id
+para class usamos .class*/
+/*para colores transparente rgba(color)*/
+
+/*seudo selectores :root    */
+.contenedor{
+    max-width: 120rem;
+    /*margin-top: 0;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: auto;*/
+    /*margin: 0 auto 0 auto;*/
+    margin: 0 auto;
+}
+.back-bg{
+    background-color: var(--secundario);
+}
+
+.navegacion-principal {
+    /*padding 1rem 1rem 1rem 1rem*/
+    /*padding: 1rem;engorgar el elemento*/
+    display: flex;/*une al texto*/
+    flex-direction: column;
+}
+/*
+@media (min-wifth: 480px){/*para resolucion de celular  
+}*/
+
+@media (min-wiDth: 768px){/*resolucion tablet*/
+    .navegacion-principal{
+        flex-direction: row;
+        justify-content: space-between;/*justifica el texto y le da un espacio*/
+    }
+}/*
+@media (min-wifth: 1140px){
+    
+}*/
+
+.navegacion-principal a{
+    display: block;
+    text-align: center;
+    color: var(--blanco);
+    text-decoration: none;/*para que no de coloro el boton al darle click*/
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 0.5rem;/*engorgar el elemento*/
+}
+.navegacion-principal a:hover{
+    background-color: var(--primario);
+    color: var(--gris);/*color al texto al pasar por el enlace*/
+}/*resaltar el contenedor al pasar por el enlace*/
+
+/*Responsive web desing-responadaptable a cualquier tamaño de pantalla*/
+ /*para poner un fondo de imagen*/
+ .hero{
+     background-image: url(../img/hero.jpg);
+     background-repeat: no-repeat;/*para que no repida la imagen multiples beces*/
+    background-size: cover;/*Definir tamaño de la imagen*/
+    height: 400px;/*altura del area de contenido*/
+    /*padding: 20px;/*padding es el espacio que tendra entre el 
+    elemento a su contenedor*/
+    position: relative;
+}
+.contenido-hero{/*poner una transparencia em la imagen*/
+    position:absolute;
+    /*top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0; al usar estos toma todo el espacio del contenedor*/
+    background-color: rgba(0, 0, 0, .6);
+    background-color: rgb(0, 0, 0 /70%);
+    width: 100%;
+    height: 100%;
+}
