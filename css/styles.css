@@ -4,6 +4,7 @@
     --primario:#ffc107;
     --secundario:#0097A7;
     --gris:#757575;
+    --grisclaro:#DFE9F3;
 }
 html{
     font-size: 62.5%;
@@ -17,7 +18,19 @@ html{
 
 body{
     font-size: 16px;
+    font-family: 'Krub' sans-serif;/*tipo de letra*/
+    background-image: linear-gradient(to top,var(--grisclaro) 0%, var(--blanco) 80%); /*degrade de fondo
+    [de abjo asia ariba(to top), color, empieasa con el color en 0%, hasta el color
+    % altura del degradado empesara el segundo color]*/
 }
+
+.sombra{
+    box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.75);
+    background-color: var(--blanco);
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
 /*Diseño de sistema*/
 h1{
     font-size: 3.8rem;
@@ -41,13 +54,32 @@ h1,h2,h3{
 .titulo span{
     font-size: 2rem;
 }
+.boton{
+    background-color: var(--secundario);
+    color: var(--blanco);
+    padding: 1rem 3rem 1rem 3rem;/*engordar*/
+    margin-top: 3;
+    font-size: 1.5rem;/*aumentar el tamaño de la fuente*/
+    text-decoration: none;/*desabilitart la linea de los enlases*/
+    text-transform: uppercase;/*combertir todo a mayuscula*/
+    font-weight: bold;/*negrita*/
+    border-radius: .5rem;/*bordear elemento*/
+    width: 90%;/*ancho*/
+    text-align: center;
+}
+/*si pantalla es menos de 480*/
+@media (min-width: 768px){
+    .boton{
+        width: auto;
+    }
+}
 /*para id usamos #id
 para class usamos .class*/
 /*para colores transparente rgba(color)*/
 
 /*seudo selectores :root    */
 .contenedor{
-    max-width: 120rem;
+    max-width: 80rem;
     /*margin-top: 0;
     margin-right: auto;
     margin-bottom: 0;
@@ -73,6 +105,9 @@ para class usamos .class*/
     .navegacion-principal{
         flex-direction: row;
         justify-content: space-between;/*justifica el texto y le da un espacio*/
+    }
+    .contenedor{
+        max-width: 60rem;
     }
 }/*
 @media (min-wifth: 1140px){
@@ -117,13 +152,23 @@ para class usamos .class*/
     /*aliniar contenedores verticar y horisontalmente*/
     display: flex;/*posiciona todos los elemento del div en linea, desactiva la configuracion en horisontal*/
     flex-direction: column;/*alinea los elementos en columnas*/
-    align-items: center;/*alinear los elementos de flex al centro*/
+    align-items: center;/*alinear los elementos verticalmente de flex al centro*/
     justify-content: center;
 }
 .contenido-hero h2, .contenido-hero p{
     color:var(--blanco);/*color de texto*/
 }
-.contenido-hero a{
-    text-decoration: none;
-    color: var(--secundario);
+.ubicacion{
+    display: flex;
+    align-items: flex-end;/*alinea verticalemte asi abajo*/
+}
+/*servicios*/
+.servicios{
+    display: grid;
+    /*
+    grid-template-columns: 280px 280px;cantidad de columnas y tamaño de las mismas
+    grid-template-rows: 200px 800px;cantidad de filas*/
+    /*cuadrado de 2 *2*/
+    /*grid: 200px 800px / 280px 280px;primero las filas(rows)/columas(columns)*/
+    grid-template-columns: 33.3% 33.3% 33.3%;/*grid de una columna con 3 cuadrados*/
 }
