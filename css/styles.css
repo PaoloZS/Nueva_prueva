@@ -24,6 +24,17 @@ body{
     % altura del degradado empesara el segundo color]*/
 }
 
+/*si pantalla es menos de 480*/
+@media (min-width: 768px){
+    .boton{
+        width: auto;
+    }
+}
+.boton:hover{
+    cursor: pointer;/*aparece una mano como cursor*/
+}
+
+
 .sombra{
     box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.75);
     background-color: var(--blanco);
@@ -43,9 +54,9 @@ h3{
 }
 h1,h2,h3{
     text-align: center;
-}/**/
+}/*.diseño de sistema*/
 
-
+/*titulo*/
 .titulo {
     text-align: center;
     font-size: 3.8rem;
@@ -64,15 +75,11 @@ h1,h2,h3{
     text-transform: uppercase;/*combertir todo a mayuscula*/
     font-weight: bold;/*negrita*/
     border-radius: .5rem;/*bordear elemento*/
-    width: 90%;/*ancho*/
+    width: 20rem;/*ancho*/
     text-align: center;
+    border: none;
 }
-/*si pantalla es menos de 480*/
-@media (min-width: 768px){
-    .boton{
-        width: auto;
-    }
-}
+
 /*para id usamos #id
 para class usamos .class*/
 /*para colores transparente rgba(color)*/
@@ -87,10 +94,29 @@ para class usamos .class*/
     /*margin: 0 auto 0 auto;*/
     margin: 0 auto;
 }
+
+
+/** Utilidades**/
+.w-100{
+    width: 100%;
+}
+@media (min-width: 768px){
+    .w-100{
+        width: auto;
+    }
+}
+.flex{
+    display: flex;
+}
+.alinear-derecha{
+    justify-content: flex-end;
+}
+/*.utulidades*/
+
+/*navegacion principal*/
 .back-bg{
     background-color: var(--secundario);
 }
-
 .navegacion-principal {
     /*padding 1rem 1rem 1rem 1rem*/
     /*padding: 1rem;engorgar el elemento*/
@@ -109,11 +135,7 @@ para class usamos .class*/
     .contenedor{
         max-width: 60rem;
     }
-}/*
-@media (min-wifth: 1140px){
-    
-}*/
-
+}
 .navegacion-principal a{
     display: block;
     text-align: center;
@@ -123,7 +145,7 @@ para class usamos .class*/
     font-weight: bold;
     padding: 0.5rem;/*engorgar el elemento*/
 }
-.navegacion-principal a:hover{
+.navegacion-principal a:hover{/*hover propiedad para el cursos resalte cuando pasa por algun elemento*/
     background-color: var(--primario);
     color: var(--gris);/*color al texto al pasar por el enlace*/
 }/*resaltar el contenedor al pasar por el enlace*/
@@ -131,8 +153,8 @@ para class usamos .class*/
 /*Responsive web desing-responadaptable a cualquier tamaño de pantalla*/
  /*para poner un fondo de imagen*/
  .hero{
-     background-image: url(../img/hero.jpg);
-     background-repeat: no-repeat;/*para que no repida la imagen multiples beces*/
+    background-image: url(../img/hero.jpg);
+    background-repeat: no-repeat;/*para que no repida la imagen multiples beces*/
     background-size: cover;/*Definir tamaño de la imagen*/
     height: 400px;/*altura del area de contenido*/
     /*padding: 20px;/*padding es el espacio que tendra entre el 
@@ -158,17 +180,97 @@ para class usamos .class*/
 .contenido-hero h2, .contenido-hero p{
     color:var(--blanco);/*color de texto*/
 }
-.ubicacion{
+.contenido-hero .ubicacion{
     display: flex;
     align-items: flex-end;/*alinea verticalemte asi abajo*/
 }
-/*servicios*/
-.servicios{
-    display: grid;
-    /*
-    grid-template-columns: 280px 280px;cantidad de columnas y tamaño de las mismas
-    grid-template-rows: 200px 800px;cantidad de filas*/
-    /*cuadrado de 2 *2*/
-    /*grid: 200px 800px / 280px 280px;primero las filas(rows)/columas(columns)*/
-    grid-template-columns: 33.3% 33.3% 33.3%;/*grid de una columna con 3 cuadrados*/
+
+
+@media (min-width: 768px){
+    /*servicios*/
+    .servicios{
+        display: grid;
+        /*
+        grid-template-columns: 280px 280px;cantidad de columnas y tamaño de las mismas
+        grid-template-rows: 200px 800px;cantidad de filas*/
+        /*cuadrado de 2 *2*/
+        /*grid: 200px 800px / 280px 280px;primero las filas(rows)/columas(columns)*/
+        /*grid-template-columns: 33.3% 33.3% 33.3%;/*grid de una columna con 3 cuadrados*/
+        grid-template-columns: 1fr 1fr 1fr;/*1fr una fraccion del segmento*/
+        /*o repeat(3,1fr);*/
+        column-gap: 1rem; /*espacio entre los grid*/
+    }
+}
+.servicio{
+    /*alinear elemento de forma */
+    display: flex;
+    flex-direction: column;
+    align-items: center;/*alinea verticalmente*/
+}
+.servicio h3{
+    color:var(--secundario);
+    font-weight: normal;
+}
+.servicio p{
+    line-height: 1;/*espacio entre texto y texto*/
+    justify-items: center;
+    text-align: center;
+}
+.servicio .iconos{
+    height: 10rem;
+    width: 10rem;
+    background-color: var(--primario);
+    border-radius: 50%;
+    display: flex;/*desactivar alineacion horizontal*/
+    justify-content: center;/*justificacion centrar*/
+    align-items: center/*alinear elemento desde vertical*/
+}
+/*contacto*/
+.formulario{
+    background-color: var(--gris);
+    width: min(40rem, 100%);/*utilizar el valor mas pequeño entre40rem y 100%*/  
+    margin: 0 auto;/*centrar horisontal formularios si padre no es un display flex */
+    padding: 2rem;/*espacio hacia dentro*/
+    border-radius: 1rem;
+}
+.formulario fieldset{
+    border: none;
+}
+.formulario legend{
+    text-align: center;
+    font-size: 1rem;
+    text-transform: uppercase;/*transformar a mayuscula*/
+    font-weight: 400;/*negrita*/
+    margin-bottom: 1rem;/*espacio desde abajo a ariba*/
+    color: var(--primario);
+}
+@media (min-width: 768px){
+    .contenedor-campos{
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: auto auto 20rem;
+        column-gap: 1rem;/*separacion de columnas*/
+    }
+}
+.campo{
+    margin-bottom: 1rem;
+}
+.campo label{
+    color: var(--blanco);
+    font-weight: bold;/*ocupe todo el espacio del bloque */
+    margin-bottom: .5rem;
+    display: block;/*toma todo el espacio disponible*/
+
+}
+/*.campo input[type="text"]{
+    background-color: var(--primario);
+}*/
+.campo textarea{
+    width: 20rem;
+}
+.input-text{
+    width: 100%;
+    border: none;
+    padding: 1rem;
+    border-radius: .5rem;
 }
